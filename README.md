@@ -30,11 +30,11 @@ FSA-constrained generation
 Evaluation
 ```
 
-The main experiment follows the CircuitSynth paper on English benchmarks. I also adapted the same workflow to Vietnamese using ViSFD, which required separate preprocessing, schema rules, verification logic, prompting, constrained generation rules, and evaluation.
+The main experiment follows the CircuitSynth paper on English benchmarks. The same workflow is also adapted to Vietnamese using ViSFD, with separate preprocessing, schema rules, verification logic, prompting, constrained generation rules, and evaluation.
 
-## What I implemented
+## Implementation scope
 
-My work on this project covers the full pipeline rather than only model training or a single notebook experiment. In particular, I:
+The project covers the full pipeline rather than only model training or a single notebook experiment. The implementation includes:
 
 - implemented the eight-stage pipeline in Python;
 - prepared and normalized data for WebNLG, DART, and a deterministic ZebraLogic-compatible benchmark;
@@ -59,13 +59,15 @@ The saved evaluation artifacts in this repository contain the following full-pip
 | ZebraLogic-compatible | 1,788 | 100.0% | 100.0% | 100.0% |
 | ViSFD | 200 | 100.0% | 100.0% | 72.0% |
 
+Detailed results are available in [`artifacts/metrics/metrics.json`](artifacts/metrics/metrics.json) and [`CircuitSynth_ViSFD/artifacts/metrics/metrics.json`](CircuitSynth_ViSFD/artifacts/metrics/metrics.json).
+
 For the Vietnamese experiment, the full pipeline produced 200 evaluated outputs with a 0% constraint-violation rate. The corresponding direct and less-constrained baselines are also saved in the ViSFD metrics so the effect of the complete pipeline can be inspected rather than inferred from a single final score.
 
 ## Public repository note
 
-This public repository keeps the source code, configuration, tests, reports, metrics, and representative result samples. Large training checkpoints, model weights, adapters, and tokenizer artifacts are intentionally left out of Git history to keep the repository practical to clone and review.
+This public repository keeps the source code, configuration, tests, reports, metrics, and representative result samples. Large training checkpoints, model weights, adapters, tokenizer files, and full generated datasets are intentionally left out of Git history to keep the repository practical to clone and review.
 
-The detailed sections below describe the complete project and submission layout as it existed during the experiments. Because the public GitHub version excludes large generated model artifacts, some local artifact paths mentioned later in the README may not be present in the public repository.
+The detailed sections below describe the complete experiment workflow. Where an artifact is produced by a full local run but excluded from the public repository because of its size, that distinction is stated explicitly.
 
 
 ## 1. Repository structure
@@ -236,10 +238,12 @@ optimizer             AdamW
 scheduler             linear
 ```
 
-The trained adapters included with the project are stored at:
+A full local training run writes the final Student adapter and tokenizer artifacts to:
 
-- English Student: [`artifacts/student/final/`](artifacts/student/final/)
-- ViSFD Student: [`CircuitSynth_ViSFD/artifacts/student/final/`](CircuitSynth_ViSFD/artifacts/student/final/)
+- English Student: `artifacts/student/final/`
+- ViSFD Student: `CircuitSynth_ViSFD/artifacts/student/final/`
+
+These generated model artifacts are intentionally excluded from the public GitHub repository. The training configuration, training reports, evaluation metrics, and representative samples remain available in version control.
 
 The base Qwen models are not duplicated inside the repository; they are downloaded from the verified Hugging Face model pages above.
 
@@ -318,13 +322,13 @@ Student validation        35
 optimizer steps           84
 ```
 
-Training reports and final adapters are stored under the corresponding `artifacts/student/` directories.
+Training reports are stored under the corresponding `artifacts/student/` directories. Final adapters are produced locally under `artifacts/student/final/` and `CircuitSynth_ViSFD/artifacts/student/final/`, but those generated model files are excluded from the public repository.
 
 ### Stage 7: FSA-constrained generation
 
 The trained Student generates text from semantic plans. A finite-state automaton constrains legal realizations so that required plan elements remain represented in the generated output.
 
-Generated records are stored under [`artifacts/outputs/`](artifacts/outputs/) and [`CircuitSynth_ViSFD/artifacts/outputs/`](CircuitSynth_ViSFD/artifacts/outputs/).
+During a full run, generated records are written under [`artifacts/outputs/`](artifacts/outputs/) and [`CircuitSynth_ViSFD/artifacts/outputs/`](CircuitSynth_ViSFD/artifacts/outputs/). The public repository keeps the generation manifests and representative samples while excluding the full generated-output files.
 
 ### Stage 8: evaluation
 
@@ -654,7 +658,7 @@ notebooks/
     └── artifacts/
 ```
 
-The submission therefore includes the ACL-format report, source code, Jupyter Notebook, run instructions, dataset sources, experiment artifacts, and trained Student adapters.
+The original submission package included the ACL-format report, source code, Jupyter Notebook, run instructions, dataset sources, experiment artifacts, and trained Student adapters. The public GitHub version keeps the reproducible source, reports, metrics, and representative samples, while intentionally excluding the large trained adapter and model artifacts.
 
 Do not include local or generated cache directories in the final ZIP:
 
