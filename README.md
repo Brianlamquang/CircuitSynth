@@ -4,6 +4,70 @@ This repository contains the implementation and experiments developed for the Ci
 
 The repository is organized so that the English experiments and the Vietnamese experiment can be run independently, while the submitted Jupyter Notebook presents the complete project in one place.
 
+## Project at a glance
+
+CircuitSynth is a synthetic data generation pipeline designed to keep generated text consistent with structured information and explicit constraints.
+
+Instead of generating text in one step, the pipeline first turns the required information into a structured semantic plan. That plan is checked before generation, its distribution is adjusted under the configured constraints, and a fine-tuned Student model then produces the final text. The generated output is evaluated again for structure, factual consistency, coverage, and distributional behavior.
+
+A simplified view of the workflow is:
+
+```text
+Dataset / structured information
+        ↓
+Semantic plan
+        ↓
+Verification
+        ↓
+Probabilistic prior and distribution adjustment
+        ↓
+Plan sampling
+        ↓
+Student model fine-tuning
+        ↓
+FSA-constrained generation
+        ↓
+Evaluation
+```
+
+The main experiment follows the CircuitSynth paper on English benchmarks. I also adapted the same workflow to Vietnamese using ViSFD, which required separate preprocessing, schema rules, verification logic, prompting, constrained generation rules, and evaluation.
+
+## What I implemented
+
+My work on this project covers the full pipeline rather than only model training or a single notebook experiment. In particular, I:
+
+- implemented the eight-stage pipeline in Python;
+- prepared and normalized data for WebNLG, DART, and a deterministic ZebraLogic-compatible benchmark;
+- built semantic-plan generation and symbolic verification;
+- implemented the internal probabilistic circuit workflow and the distribution-adjustment step;
+- trained the Qwen2.5-0.5B Student model with QLoRA;
+- added FSA-constrained generation so required plan information is preserved in the output;
+- implemented evaluation for schema validity, constraint violations, factuality, coverage, distributional drift, bits per token, and perplexity;
+- added checkpoints, resume support, tests, saved configurations, and reusable experiment artifacts;
+- adapted the pipeline to Vietnamese with ViSFD and kept that version runnable as a separate experiment.
+
+The repository includes source code, tests, configuration, the project notebook, the report, saved metrics, training reports, and representative generated samples so the work can be inspected without rerunning the full training process.
+
+## Quick results
+
+The saved evaluation artifacts in this repository contain the following full-pipeline results:
+
+| Experiment | Evaluated outputs | Schema validity | Fact coverage | Factuality precision |
+| --- | ---: | ---: | ---: | ---: |
+| WebNLG | 318 | 100.0% | 99.8% | 99.0% |
+| DART | 894 | 99.2% | 87.9% | 90.2% |
+| ZebraLogic-compatible | 1,788 | 100.0% | 100.0% | 100.0% |
+| ViSFD | 200 | 100.0% | 100.0% | 72.0% |
+
+For the Vietnamese experiment, the full pipeline produced 200 evaluated outputs with a 0% constraint-violation rate. The corresponding direct and less-constrained baselines are also saved in the ViSFD metrics so the effect of the complete pipeline can be inspected rather than inferred from a single final score.
+
+## Public repository note
+
+This public repository keeps the source code, configuration, tests, reports, metrics, and representative result samples. Large training checkpoints, model weights, adapters, and tokenizer artifacts are intentionally left out of Git history to keep the repository practical to clone and review.
+
+The detailed sections below describe the complete project and submission layout as it existed during the experiments. Because the public GitHub version excludes large generated model artifacts, some local artifact paths mentioned later in the README may not be present in the public repository.
+
+
 ## 1. Repository structure
 
 ```text
