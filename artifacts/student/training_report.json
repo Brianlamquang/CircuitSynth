@@ -1,0 +1,13 @@
+{
+  "calculated_optimizer_steps": 238,
+  "checkpoints": [
+    100,
+    200,
+    238
+  ],
+  "current_step": 238,
+  "executed_optimizer_steps": 238,
+  "target_only_masking": true,
+  "train_count": 3800,
+  "validation_count": 200
+}

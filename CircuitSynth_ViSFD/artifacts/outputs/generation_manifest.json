@@ -1,0 +1,26 @@
+{
+  "eval_ids_sha256": "db7a3ed5beeec263e0289bf882408911e055760e37479ee21843c1930f12a8af",
+  "evaluation_domain_counts": {
+    "visfd": 200
+  },
+  "expected_output_count": 330,
+  "max_budget": 200,
+  "output_count": 330,
+  "seeds_sha256": "f93f514d16d65f283293df36897dbdb2951e6f07ea980c2f16f0ef00838efb76",
+  "variant_budgets": {
+    "distill_only": 20,
+    "full_pipeline": 200,
+    "psdd_fsa": 50,
+    "psdd_only": 20,
+    "psdd_pgd": 20,
+    "teacher_direct": 20
+  },
+  "variants": [
+    "teacher_direct",
+    "distill_only",
+    "psdd_only",
+    "psdd_fsa",
+    "psdd_pgd",
+    "full_pipeline"
+  ]
+}

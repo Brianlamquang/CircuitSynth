@@ -1,0 +1,52 @@
+{"event":"stage_start","stage":"C0_data_schema","time":"2026-08-29T15:55:30.559597+00:00"}
+{"current_step":null,"event":"stage_complete","record_count":40830,"stage":"C0_data_schema","time":"2026-08-29T15:55:52.035988+00:00"}
+{"event":"stage_start","stage":"C1_silver","time":"2026-08-29T15:55:54.160639+00:00"}
+{"error":"'list' object has no attribute 'get'","event":"stage_failed","stage":"C1_silver","time":"2026-08-29T18:40:03.218898+00:00"}
+{"event":"stage_skip","reason":"compatible complete checkpoint","stage":"C0_data_schema","time":"2026-08-29T20:44:10.525922+00:00"}
+{"event":"stage_start","stage":"C1_silver","time":"2026-08-29T20:44:12.011894+00:00"}
+{"current_step":null,"event":"stage_complete","record_count":4000,"stage":"C1_silver","time":"2026-08-30T04:50:51.924922+00:00"}
+{"event":"stage_start","stage":"C2_psdd_theta_star","time":"2026-08-30T04:50:53.343500+00:00"}
+{"current_step":null,"event":"stage_complete","record_count":4000,"stage":"C2_psdd_theta_star","time":"2026-08-30T04:50:58.788354+00:00"}
+{"event":"stage_start","stage":"C3_psdd_theta_prime","time":"2026-08-30T04:51:00.508599+00:00"}
+{"current_step":6,"event":"stage_complete","record_count":4000,"stage":"C3_psdd_theta_prime","time":"2026-08-30T04:51:05.438239+00:00"}
+{"event":"stage_start","stage":"C4_sampled_plans","time":"2026-08-30T04:51:06.914408+00:00"}
+{"current_step":null,"event":"stage_complete","record_count":4000,"stage":"C4_sampled_plans","time":"2026-08-30T04:51:12.545957+00:00"}
+{"event":"stage_start","stage":"C5_student","time":"2026-08-30T04:51:14.150194+00:00"}
+{"current_step":238,"event":"stage_complete","record_count":3800,"stage":"C5_student","time":"2026-08-30T05:11:42.547282+00:00"}
+{"event":"stage_start","stage":"C6_generated_outputs","time":"2026-08-30T05:11:44.468712+00:00"}
+{"error":"Some modules are dispatched on the CPU or the disk. Make sure you have enough GPU RAM to fit the quantized model. If you want to dispatch the model on the CPU or the disk while keeping these modules in 32-bit, you need to set `llm_int8_enable_fp32_cpu_offload=True` and pass a custom `device_map` to `from_pretrained`. Check https://huggingface.co/docs/transformers/main/en/main_classes/quantization#offload-between-cpu-and-gpu for more details. ","event":"stage_failed","stage":"C6_generated_outputs","time":"2026-08-30T05:11:51.502128+00:00"}
+{"event":"stage_skip","reason":"compatible complete checkpoint","stage":"C0_data_schema","time":"2026-08-30T10:07:49.576520+00:00"}
+{"event":"stage_skip","reason":"compatible complete checkpoint","stage":"C1_silver","time":"2026-08-30T10:07:49.623979+00:00"}
+{"event":"stage_skip","reason":"compatible complete checkpoint","stage":"C2_psdd_theta_star","time":"2026-08-30T10:07:49.721847+00:00"}
+{"event":"stage_skip","reason":"compatible complete checkpoint","stage":"C3_psdd_theta_prime","time":"2026-08-30T10:07:49.797237+00:00"}
+{"event":"stage_skip","reason":"compatible complete checkpoint","stage":"C4_sampled_plans","time":"2026-08-30T10:07:49.844602+00:00"}
+{"event":"stage_skip","reason":"compatible complete checkpoint","stage":"C5_student","time":"2026-08-30T10:07:49.967758+00:00"}
+{"event":"stage_start","stage":"C6_generated_outputs","time":"2026-08-30T10:07:51.037676+00:00"}
+{"event":"stage_interrupted","stage":"C6_generated_outputs","time":"2026-08-30T16:16:28.922167+00:00"}
+{"event":"stage_skip","reason":"compatible complete checkpoint","stage":"C0_data_schema","time":"2026-08-30T23:53:11.552758+00:00"}
+{"event":"stage_skip","reason":"compatible complete checkpoint","stage":"C1_silver","time":"2026-08-30T23:53:11.635866+00:00"}
+{"event":"stage_skip","reason":"compatible complete checkpoint","stage":"C2_psdd_theta_star","time":"2026-08-30T23:53:11.762181+00:00"}
+{"event":"stage_skip","reason":"compatible complete checkpoint","stage":"C3_psdd_theta_prime","time":"2026-08-30T23:53:11.889507+00:00"}
+{"event":"stage_skip","reason":"compatible complete checkpoint","stage":"C4_sampled_plans","time":"2026-08-30T23:53:11.962731+00:00"}
+{"event":"stage_skip","reason":"compatible complete checkpoint","stage":"C5_student","time":"2026-08-30T23:53:12.127288+00:00"}
+{"event":"stage_start","stage":"C6_generated_outputs","time":"2026-08-30T23:53:13.874276+00:00"}
+{"event":"stage_interrupted","stage":"C6_generated_outputs","time":"2026-08-30T23:59:46.994323+00:00"}
+{"event":"stage_skip","reason":"compatible complete checkpoint","stage":"C0_data_schema","time":"2026-08-31T00:00:22.553746+00:00"}
+{"event":"stage_skip","reason":"compatible complete checkpoint","stage":"C1_silver","time":"2026-08-31T00:00:22.660282+00:00"}
+{"event":"stage_skip","reason":"compatible complete checkpoint","stage":"C2_psdd_theta_star","time":"2026-08-31T00:00:22.784588+00:00"}
+{"event":"stage_skip","reason":"compatible complete checkpoint","stage":"C3_psdd_theta_prime","time":"2026-08-31T00:00:22.915952+00:00"}
+{"event":"stage_skip","reason":"compatible complete checkpoint","stage":"C4_sampled_plans","time":"2026-08-31T00:00:22.992398+00:00"}
+{"event":"stage_skip","reason":"compatible complete checkpoint","stage":"C5_student","time":"2026-08-31T00:00:23.211659+00:00"}
+{"event":"stage_start","stage":"C6_generated_outputs","time":"2026-08-31T00:00:24.981099+00:00"}
+{"current_step":null,"event":"stage_complete","record_count":3700,"stage":"C6_generated_outputs","time":"2026-08-31T01:38:17.246735+00:00"}
+{"event":"stage_start","stage":"C7_metrics","time":"2026-08-31T01:38:20.276728+00:00"}
+{"error":"JS inputs must be same-shape non-negative vectors","event":"stage_failed","stage":"C7_metrics","time":"2026-08-31T01:39:18.871360+00:00"}
+{"event":"stage_skip","reason":"compatible complete checkpoint","stage":"C0_data_schema","time":"2026-08-31T03:02:31.724633+00:00"}
+{"event":"stage_skip","reason":"compatible complete checkpoint","stage":"C1_silver","time":"2026-08-31T03:02:31.786207+00:00"}
+{"event":"stage_skip","reason":"compatible complete checkpoint","stage":"C2_psdd_theta_star","time":"2026-08-31T03:02:31.870633+00:00"}
+{"event":"stage_skip","reason":"compatible complete checkpoint","stage":"C3_psdd_theta_prime","time":"2026-08-31T03:02:31.953138+00:00"}
+{"event":"stage_skip","reason":"compatible complete checkpoint","stage":"C4_sampled_plans","time":"2026-08-31T03:02:32.004415+00:00"}
+{"event":"stage_skip","reason":"compatible complete checkpoint","stage":"C5_student","time":"2026-08-31T03:02:32.139441+00:00"}
+{"event":"stage_skip","reason":"compatible complete checkpoint","stage":"C6_generated_outputs","time":"2026-08-31T03:02:32.374601+00:00"}
+{"event":"stage_start","stage":"C7_metrics","time":"2026-08-31T03:02:34.111665+00:00"}
+{"current_step":null,"event":"stage_complete","record_count":6,"stage":"C7_metrics","time":"2026-08-31T03:17:48.404725+00:00"}

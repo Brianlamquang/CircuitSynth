@@ -1,0 +1,47 @@
+[
+  {
+    "available_count": 2224,
+    "configuration": null,
+    "configured_population_count": 2224,
+    "dataset": "visfd",
+    "duplicate_count": 0,
+    "fingerprint": "ebaa7e57f988009ce965b09dc451249ec389e746ed2e4a8cd50a4a3824bb3a90",
+    "leakage_count": 0,
+    "official_split": "test",
+    "resolved_revision": "7923cbb5dd0ae95d8016828accceb70e4a22daa5",
+    "sample_fraction": 1.0,
+    "seed": 42,
+    "selected_count": 200,
+    "selected_ids_sha256": "db7a3ed5beeec263e0289bf882408911e055760e37479ee21843c1930f12a8af"
+  },
+  {
+    "available_count": 7786,
+    "configuration": null,
+    "configured_population_count": 7786,
+    "dataset": "visfd",
+    "duplicate_count": 0,
+    "fingerprint": "66b5d923895ad91f25a1ba0d30b7c22c00ef2f40a6b4af3c3476167f2a2cef13",
+    "leakage_count": 0,
+    "official_split": "train",
+    "resolved_revision": "7923cbb5dd0ae95d8016828accceb70e4a22daa5",
+    "sample_fraction": 1.0,
+    "seed": 42,
+    "selected_count": 700,
+    "selected_ids_sha256": "2931751d7c9e40c806cc9d60b67d4617da23b90b14bf2bb87ce532897b35d8b9"
+  },
+  {
+    "available_count": 1112,
+    "configuration": null,
+    "configured_population_count": 1112,
+    "dataset": "visfd",
+    "duplicate_count": 0,
+    "fingerprint": "e337afeff3386c802ef0667f01905bc0507436f64224df8f70fe8fdee8e03abc",
+    "leakage_count": 0,
+    "official_split": "validation",
+    "resolved_revision": "7923cbb5dd0ae95d8016828accceb70e4a22daa5",
+    "sample_fraction": 1.0,
+    "seed": 42,
+    "selected_count": 100,
+    "selected_ids_sha256": "fcead224d42abdd79e293b7c1dd5d4f462ee24058d7a91fdf745a615029eaff8"
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "finite": true,
+  "invalid_support_mass": 0.0,
+  "iterations": 3,
+  "kl_distribution": 4.13829889525645e-05,
+  "normalized": true,
+  "objective_converged": true,
+  "optimality_residual": 3.872925175962133e-08,
+  "parameterization": "normalized_exponential_family_edge_flow",
+  "primal_constraint_violation": 3.872925175962133e-08,
+  "solver": "convex_dual_lbfgs",
+  "solver_message": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+  "status": "complete",
+  "targets": {
+    "rare_pair:[\"relation:visfd:bộ nhớ\",\"relation:visfd:khía cạnh khác\"]": 0.0017857142857142854
+  }
+}

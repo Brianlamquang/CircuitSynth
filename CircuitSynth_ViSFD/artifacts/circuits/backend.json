@@ -1,0 +1,30 @@
+{
+  "backend": "internal_psdd",
+  "build": "Python 3.11.9; NumPy 2.1.3; float64",
+  "capabilities": [
+    "compile",
+    "local-mle",
+    "exact-marginals",
+    "kl-i-projection",
+    "ancestral-sampling"
+  ],
+  "compiler": "deterministic_plan_circuit",
+  "compiler_version": "1.0",
+  "conformance": {
+    "marginals_match": true,
+    "model_count": 3,
+    "normalized": true,
+    "samples_valid": true,
+    "support_match": true
+  },
+  "decision_nodes": 2,
+  "input_cnf_hash": "7a511173e0be273490847ba6203dc7bfbf41346952e3a98fbc1785bb0a9c99f7",
+  "output_circuit_hash": "9d02e3caec85670211898caf5a3602d6400952ee0a3b1063b6028e39c1e1b7ed",
+  "partitions_exhaustive": true,
+  "partitions_mutually_exclusive": true,
+  "path": null,
+  "state_count": 700,
+  "support_definition": "verified_silver_plan_manifold",
+  "version": "1.0",
+  "vtree_hash": "0245c8ea4ffee882af0b6e576d3f2ca065e45e54429644fc6fe05ed7b3f7b06d"
+}

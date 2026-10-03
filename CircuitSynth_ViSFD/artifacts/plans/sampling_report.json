@@ -1,0 +1,11 @@
+{
+  "circuit_hash": "17b338710fb44fbda3cd3e4e566d9869dbb704be6ec84746088954b95b370218",
+  "count": 200,
+  "domain_distribution": {
+    "visfd": 1.0
+  },
+  "duplicate_rate": 0.27,
+  "marginal_error": 0.015434620996709872,
+  "rare_combination_coverage": 0.9130434782608695,
+  "schema_validity": 1.0
+}

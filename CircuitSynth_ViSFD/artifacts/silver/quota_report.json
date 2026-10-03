@@ -1,0 +1,60 @@
+{
+  "accepted_by_domain": {
+    "dart": 0,
+    "visfd": 700,
+    "webnlg": 0,
+    "zebra_easy": 0,
+    "zebra_hard": 0,
+    "zebra_medium": 0
+  },
+  "accepted_total": 700,
+  "attempts": 700,
+  "capacity": {
+    "dart": {
+      "capacity": 0,
+      "required": 0,
+      "sources": 0
+    },
+    "visfd": {
+      "capacity": 700,
+      "required": 700,
+      "sources": 700
+    },
+    "webnlg": {
+      "capacity": 0,
+      "required": 0,
+      "sources": 0
+    },
+    "zebra_easy": {
+      "capacity": 0,
+      "required": 0,
+      "sources": 0
+    },
+    "zebra_hard": {
+      "capacity": 0,
+      "required": 0,
+      "sources": 0
+    },
+    "zebra_medium": {
+      "capacity": 0,
+      "required": 0,
+      "sources": 0
+    }
+  },
+  "quotas": {
+    "dart": 0,
+    "visfd": 700,
+    "webnlg": 0,
+    "zebra_easy": 0,
+    "zebra_hard": 0,
+    "zebra_medium": 0
+  },
+  "rejected_by_domain": {},
+  "rejected_total": 0,
+  "required_total": 700,
+  "semantic_plan_sources": {
+    "human_annotation": 700
+  },
+  "teacher_fallback_count": 421,
+  "teacher_retry_count": 1046
+}

@@ -1,0 +1,74 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets / local config
+.env
+.env.*
+*.key
+*.pem
+
+# Generated artifacts
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# Submission archive
+*.zip
+
+# Training checkpoints / model weights
+artifacts/student/checkpoints/
+CircuitSynth_ViSFD/artifacts/student/checkpoints/
+
+artifacts/student/final/*.safetensors
+CircuitSynth_ViSFD/artifacts/student/final/*.safetensors
+
+artifacts/student/final/trainer_state.json
+CircuitSynth_ViSFD/artifacts/student/final/trainer_state.json
+
+# Large generated datasets
+artifacts/data/records.jsonl
+artifacts/data/schemas.jsonl
+artifacts/outputs/generated.jsonl
+artifacts/silver/accepted.jsonl
+
+# Training checkpoints and model weights
+artifacts/student/checkpoints/
+CircuitSynth_ViSFD/artifacts/student/checkpoints/
+
+artifacts/student/final/*.safetensors
+CircuitSynth_ViSFD/artifacts/student/final/*.safetensors
+
+artifacts/student/final/tokenizer.json
+CircuitSynth_ViSFD/artifacts/student/final/tokenizer.json
+
+artifacts/student/final/trainer_state.json
+CircuitSynth_ViSFD/artifacts/student/final/trainer_state.json
+
+# ViSFD large/generated data
+CircuitSynth_ViSFD/artifacts/data/records.jsonl
+CircuitSynth_ViSFD/artifacts/data/schemas.jsonl
+CircuitSynth_ViSFD/artifacts/outputs/generated.jsonl
+CircuitSynth_ViSFD/artifacts/silver/accepted.jsonl
+
+# Final trained model/tokenizer artifacts
+artifacts/student/final/
+CircuitSynth_ViSFD/artifacts/student/final/

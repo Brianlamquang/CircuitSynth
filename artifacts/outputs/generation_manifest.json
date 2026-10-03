@@ -1,0 +1,30 @@
+{
+  "eval_ids_sha256": "6dac01874aeea5a24fa4ae98756b45c3f5c4fdaf9cd730e11ba31fe3fc6b4438",
+  "evaluation_domain_counts": {
+    "dart": 894,
+    "webnlg": 318,
+    "zebra_easy": 537,
+    "zebra_hard": 536,
+    "zebra_medium": 715
+  },
+  "expected_output_count": 3700,
+  "max_budget": 3000,
+  "output_count": 3700,
+  "seeds_sha256": "ab02cec8b5ce475acd2ad60d0737b86a9426b175e11f4daac373044e3c8faa00",
+  "variant_budgets": {
+    "distill_only": 100,
+    "full_pipeline": 3000,
+    "psdd_fsa": 300,
+    "psdd_only": 100,
+    "psdd_pgd": 100,
+    "teacher_direct": 100
+  },
+  "variants": [
+    "teacher_direct",
+    "distill_only",
+    "psdd_only",
+    "psdd_fsa",
+    "psdd_pgd",
+    "full_pipeline"
+  ]
+}

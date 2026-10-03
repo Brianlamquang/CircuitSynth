@@ -1,0 +1,231 @@
+project:
+  name: CircuitSynth_DataPipeline
+  seed: 42
+  numerical_dtype: float64
+  numerical_floor: 1.0e-8
+  count_policy: validate
+
+data:
+  sample_fraction: 0.5
+  count_rounding: half_up
+  preserve_official_splits: true
+  sampling_without_replacement: true
+
+  webnlg:
+    enabled: true
+    source: GEM/web_nlg
+    configuration: en
+    revision: null
+    full_counts:
+      train: 13211
+      validation: 1667
+      test: 1779
+    count_overrides:
+      train: null
+      validation: null
+      test: null
+    stratify_by: [category, triple_count]
+
+  dart:
+    enabled: true
+    source: GEM/dart
+    configuration: null
+    revision: null
+    full_counts:
+      train: 50000
+      test: 5000
+    count_overrides:
+      train: null
+      test: null
+    stratify_by: [source, schema_cardinality, triple_count]
+
+  zebralogic:
+    enabled: true
+    source: generated/ZebraLogic
+    source_mode: builtin
+    configuration: paper_compatible_grid
+    revision: null
+    generator_version: 1
+    full_counts:
+      easy: 3000
+      medium: 4000
+      hard: 3000
+    count_overrides:
+      easy: null
+      medium: null
+      hard: null
+    stratify_by: [official_split, grid_size, clue_count, clue_type]
+    research_split:
+      train_fraction: 0.8
+      validation_fraction: 0.1
+      test_fraction: 0.1
+      group_by: [puzzle_family]
+    difficulty_spec:
+      easy:
+        grid_size: 2
+        category_count: 3
+      medium:
+        grid_size: 3
+        category_count: 4
+      hard:
+        grid_size: 4
+        category_count: 5
+
+silver:
+  reference_total: 100000
+  sample_fraction: 0.04
+  accepted_total_override: 4000
+  quota_weights:
+    webnlg: 13211
+    dart: 50000
+    zebra_easy: 3000
+    zebra_medium: 4000
+    zebra_hard: 3000
+  quota_overrides:
+    webnlg: null
+    dart: null
+    zebra_easy: null
+    zebra_medium: null
+    zebra_hard: null
+  quota_tie_break_order: [webnlg, dart, zebra_easy, zebra_medium, zebra_hard]
+  max_candidates_per_source: 5
+  max_total_attempts: 18000
+  checkpoint_every_accepted: 100
+
+teacher:
+  model: Qwen/Qwen2.5-1.5B-Instruct
+  revision: null
+  load_in_4bit: true
+  quantization_type: nf4
+  batch_size: 1
+  max_input_tokens: 1024
+  max_new_tokens: 512
+  temperature: 0.7
+  top_p: 0.8
+  top_k: 20
+  repetition_penalty: 1.1
+  retries: 3
+
+psdd:
+  backend: internal_psdd
+  compiler: deterministic_plan_circuit
+  backend_path: null
+  backend_revision: null
+  variable_order: min_fill
+  vtree: balanced
+  mle_smoothing_alpha: 1.0e-8
+  require_positive_parameters: true
+  allow_conditioning_partitions: true
+  max_partition_states: 100000
+
+soft_constraints:
+  features: [attribute_marginals, relation_marginals, rare_pair_combinations]
+  max_attribute_features: 512
+  max_relation_features: 256
+  max_rare_pair_features: 128
+  rare_quantile: 0.25
+  target_source: silver_train
+  target_overrides: {}
+  automatic_rare_pair_target_count: 32
+  automatic_rare_pair_boost: 1.25
+  maximum_automatic_shift: 0.02
+
+pgd:
+  solver: auto
+  parameterization: edge_flow
+  initial_step_size: 1.0
+  backtracking_factor: 0.5
+  max_iterations: 1000
+  constraint_tolerance: 1.0e-6
+  relative_kl_tolerance: 1.0e-8
+  optimality_tolerance: 1.0e-6
+  checkpoint_every_iterations: 200
+
+sampling:
+  total_plans: 4000
+  checkpoint_every_plans: 400
+  verify_every_plan: true
+
+student:
+  model: Qwen/Qwen2.5-0.5B-Instruct
+  revision: null
+  load_in_4bit: true
+  quantization_type: nf4
+  split:
+    train_fraction: 0.95
+    validation_fraction: 0.05
+    stratify_by: [domain, plan_cardinality]
+    group_by: [source_id]
+    count_overrides:
+      train: null
+      validation: null
+  epochs: 1
+  shuffle_training: true
+  micro_batch_size: 1
+  gradient_accumulation_steps: 16
+  max_sequence_length: 1024
+  learning_rate: 2.0e-5
+  optimizer: adamw
+  scheduler: linear
+  warmup_ratio: 0.0
+  weight_decay: 0.0
+  lora_rank: 8
+  lora_alpha: 16
+  lora_dropout: 0.05
+  checkpoint:
+    every_steps: 100
+    explicit_steps: [500, 1000, 1500]
+    save_final: true
+    strict_explicit_steps: false
+
+generation:
+  batch_size: 1
+  max_new_tokens: 512
+  temperature: 0.7
+  top_p: 0.8
+  top_k: 20
+  checkpoint_every_outputs: 50
+  controlled_realization_language: true
+
+evaluation:
+  generation_budget_per_variant: 500
+  variant_budgets:
+    teacher_direct: 100
+    distill_only: 100
+    psdd_only: 100
+    psdd_fsa: 300
+    psdd_pgd: 100
+    full_pipeline: 3000
+  domain_weights:
+    webnlg: 1779
+    dart: 5000
+    zebra_easy: 3000
+    zebra_medium: 4000
+    zebra_hard: 3000
+  domain_tie_break_order: [webnlg, dart, zebra_easy, zebra_medium, zebra_hard]
+  use_same_ids_across_variants: true
+  use_same_seeds_across_variants: true
+  factuality_matching: canonical
+  coverage_aggregation: macro
+  bpt_log_base: 2
+  variants:
+    teacher_direct: true
+    distill_only: true
+    psdd_only: true
+    psdd_fsa: true
+    psdd_pgd: true
+    full_pipeline: true
+
+checkpoint:
+  atomic_write: true
+  checksum: sha256
+  resume: true
+  verify_upstream_hashes: true
+  include_code_revision: true
+  fail_on_incompatible_checkpoint: true
+
+runtime:
+  device: auto
+  num_workers: 2
+  log_level: INFO
+  offline_tests: true

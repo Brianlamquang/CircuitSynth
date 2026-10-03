@@ -1,0 +1,15 @@
+{
+  "circuit_hash": "ae303678a4acc10728c982bc421e47780be546ed5bc5490f1f9472cba859f01d",
+  "count": 4000,
+  "domain_distribution": {
+    "dart": 0.688,
+    "webnlg": 0.17925,
+    "zebra_easy": 0.03825,
+    "zebra_hard": 0.0425,
+    "zebra_medium": 0.052
+  },
+  "duplicate_rate": 0.3735,
+  "marginal_error": 0.0010612536872868737,
+  "rare_combination_coverage": 0.6640625,
+  "schema_validity": 1.0
+}

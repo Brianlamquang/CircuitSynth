@@ -1,0 +1,16 @@
+{"event":"stage_start","stage":"C0_data_schema","time":"2026-09-04T05:10:57.274020+00:00"}
+{"current_step":null,"event":"stage_complete","record_count":1000,"stage":"C0_data_schema","time":"2026-09-04T05:11:02.438395+00:00"}
+{"event":"stage_start","stage":"C1_silver","time":"2026-09-04T05:11:02.482860+00:00"}
+{"current_step":null,"event":"stage_complete","record_count":700,"stage":"C1_silver","time":"2026-09-04T08:02:51.373929+00:00"}
+{"event":"stage_start","stage":"C2_psdd_theta_star","time":"2026-09-04T08:02:51.506428+00:00"}
+{"current_step":null,"event":"stage_complete","record_count":700,"stage":"C2_psdd_theta_star","time":"2026-09-04T08:02:51.876042+00:00"}
+{"event":"stage_start","stage":"C3_psdd_theta_prime","time":"2026-09-04T08:02:52.264544+00:00"}
+{"current_step":3,"event":"stage_complete","record_count":700,"stage":"C3_psdd_theta_prime","time":"2026-09-04T08:02:52.413764+00:00"}
+{"event":"stage_start","stage":"C4_sampled_plans","time":"2026-09-04T08:02:52.473249+00:00"}
+{"current_step":null,"event":"stage_complete","record_count":200,"stage":"C4_sampled_plans","time":"2026-09-04T08:02:52.650782+00:00"}
+{"event":"stage_start","stage":"C5_student","time":"2026-09-04T08:02:52.733614+00:00"}
+{"current_step":84,"event":"stage_complete","record_count":665,"stage":"C5_student","time":"2026-09-04T08:07:01.545127+00:00"}
+{"event":"stage_start","stage":"C6_generated_outputs","time":"2026-09-04T08:07:01.681576+00:00"}
+{"current_step":null,"event":"stage_complete","record_count":330,"stage":"C6_generated_outputs","time":"2026-09-04T08:21:33.136208+00:00"}
+{"event":"stage_start","stage":"C7_metrics","time":"2026-09-04T08:21:33.315382+00:00"}
+{"current_step":null,"event":"stage_complete","record_count":6,"stage":"C7_metrics","time":"2026-09-04T08:21:35.297763+00:00"}

@@ -1,0 +1,78 @@
+{
+  "checks": {
+    "cuda": true,
+    "dataset_access": true,
+    "disk": true,
+    "model_access": true,
+    "psdd_compiler": true,
+    "quantization_backend": true,
+    "required_packages": true
+  },
+  "cuda": {
+    "available": true,
+    "cuda_version": "12.6",
+    "driver_version": "561.00",
+    "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "total_vram_bytes": 6439305216,
+    "usable_vram_bytes": 6208618496
+  },
+  "dataset_access": {
+    "dart": true,
+    "webnlg": true,
+    "zebralogic": true
+  },
+  "estimated_checkpoint_disk_bytes": 3865470566,
+  "estimated_generation_output_count": 3700,
+  "estimated_student_optimizer_steps": 238,
+  "estimated_teacher_generation_count": {
+    "maximum": 18000,
+    "minimum": 4000
+  },
+  "evaluation_variant_budgets": {
+    "distill_only": 100,
+    "full_pipeline": 3000,
+    "psdd_fsa": 300,
+    "psdd_only": 100,
+    "psdd_pgd": 100,
+    "teacher_direct": 100
+  },
+  "free_disk_bytes": 98906447872,
+  "model_access": {
+    "student": true,
+    "teacher": true
+  },
+  "packages": {
+    "bitsandbytes": true,
+    "datasets": true,
+    "huggingface_hub": true,
+    "peft": true,
+    "torch": true,
+    "transformers": true
+  },
+  "psdd": {
+    "available": true,
+    "backend": "internal_psdd",
+    "build": "Python 3.11.9; NumPy 2.1.3; float64",
+    "capabilities": [
+      "compile",
+      "local-mle",
+      "exact-marginals",
+      "kl-i-projection",
+      "ancestral-sampling"
+    ],
+    "compiler": "deterministic_plan_circuit",
+    "compiler_version": "1.0",
+    "conformance": {
+      "marginals_match": true,
+      "model_count": 3,
+      "normalized": true,
+      "samples_valid": true,
+      "support_match": true
+    },
+    "path": null,
+    "version": "1.0"
+  },
+  "python_version": "3.11.9",
+  "status": "pass",
+  "system_ram_bytes": 16755736576
+}

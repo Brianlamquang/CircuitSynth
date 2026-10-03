@@ -1,0 +1,52 @@
+{
+  "accepted_by_domain": {
+    "dart": 2732,
+    "webnlg": 722,
+    "zebra_easy": 164,
+    "zebra_hard": 164,
+    "zebra_medium": 218
+  },
+  "accepted_total": 4000,
+  "attempts": 4143,
+  "capacity": {
+    "dart": {
+      "capacity": 125000,
+      "required": 2732,
+      "sources": 25000
+    },
+    "webnlg": {
+      "capacity": 33030,
+      "required": 722,
+      "sources": 6606
+    },
+    "zebra_easy": {
+      "capacity": 6000,
+      "required": 164,
+      "sources": 1200
+    },
+    "zebra_hard": {
+      "capacity": 6000,
+      "required": 164,
+      "sources": 1200
+    },
+    "zebra_medium": {
+      "capacity": 8000,
+      "required": 218,
+      "sources": 1600
+    }
+  },
+  "quotas": {
+    "dart": 2732,
+    "webnlg": 722,
+    "zebra_easy": 164,
+    "zebra_hard": 164,
+    "zebra_medium": 218
+  },
+  "rejected_by_domain": {
+    "dart": 143
+  },
+  "rejected_total": 143,
+  "required_total": 4000,
+  "teacher_fallback_count": 3797,
+  "teacher_retry_count": 7802
+}
